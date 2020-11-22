@@ -42,6 +42,11 @@ p {
 
 /* STYLES */
 
+.container > div {
+  padding-bottom: 1.5em;
+  margin-bottom: 1.5em;
+}
+
 h3 {
   font-size: var(--font-size-small);
   text-transform: uppercase;
@@ -102,11 +107,10 @@ h3 {
 section {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 1.5em;
 }
 
-.experience {
-  margin-top: 2.2em;
+section:not(:last-child) {
+  margin-bottom: 1.5em;
 }
 
 .date,
@@ -149,6 +153,10 @@ section {
   content: "- ";
 }
 
+.experience {
+  margin-bottom: 3rem;
+}
+
 .education h2 {
   font-size: var(--font-size);
 }
@@ -174,6 +182,10 @@ section {
   .experience,
   .education {
     grid-column: auto / span 2;
+  }
+
+  .experience {
+    margin-top: 2.2em;
   }
 }
 
