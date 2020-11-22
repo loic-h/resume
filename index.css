@@ -42,6 +42,10 @@ p {
 
 /* STYLES */
 
+.container {
+  padding: 1.5em 1em 0;
+}
+
 .container > div {
   padding-bottom: 1.5em;
   margin-bottom: 1.5em;
@@ -163,10 +167,6 @@ section:not(:last-child) {
 
 @media print, (min-width: 768px) {
 
-  body {
-    margin: 2em 1em;
-  }
-
   .container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -215,6 +215,6 @@ section:not(:last-child) {
 @media screen and (min-width: 440px) {
 
   .container {
-    padding: 2.5em 2em 3em;
+    padding: 2.5em 2em 0;
   }
 }
