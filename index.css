@@ -98,6 +98,10 @@ h3 {
   margin-bottom: 1em;
 }
 
+.code ul + h3 {
+  margin-top: 0.5em;
+}
+
 .code ul li,
 .tools ul li {
   display: inline;
