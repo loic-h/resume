@@ -155,9 +155,8 @@ section {
 
 @media print, (min-width: 768px) {
 
-  html, body {
-    background: gray;
-    padding: 16px;
+  body {
+    margin: 2em 1em;
   }
 
   .container {
@@ -182,7 +181,6 @@ section {
 
   .container {
     max-width: 900px;
-    padding: 2em 1em;
     background: white;
     margin: 0 auto;
     box-sizing: border-box;
@@ -193,6 +191,10 @@ section {
 
   html, body {
     font-size: 0.9rem;
+  }
+
+  body {
+    margin: 4em;
   }
 
   @page { margin: 0; }
