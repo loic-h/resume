@@ -15,8 +15,6 @@ html, body {
   font-family: 'Inter', sans-serif;
   font-size: var(--font-size);
   font-weight: var(--regular);
-  background: gray;
-  padding: 16px;
 }
 
 ul {
@@ -41,6 +39,8 @@ select:-moz-focusring {
 p {
   margin-top: 0;
 }
+
+/* STYLES */
 
 h3 {
   font-size: var(--font-size-small);
@@ -106,7 +106,7 @@ section {
 }
 
 .experience {
-  margin-top: 2em;
+  margin-top: 2.2em;
 }
 
 .date,
@@ -155,6 +155,11 @@ section {
 
 @media print, (min-width: 768px) {
 
+  html, body {
+    background: gray;
+    padding: 16px;
+  }
+
   .container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -177,7 +182,7 @@ section {
 
   .container {
     max-width: 900px;
-    padding: 2em 2em 3em;
+    padding: 2em 1em;
     background: white;
     margin: 0 auto;
     box-sizing: border-box;
@@ -191,4 +196,11 @@ section {
   }
 
   @page { margin: 0; }
+}
+
+@media screen and (min-width: 440px) {
+
+  .container {
+    padding: 2.5em 2em 3em;
+  }
 }
