@@ -94,7 +94,7 @@ h3 {
   margin-bottom: 0.2em;
 }
 
-.skills > div {
+.skills > div:not(:last-child) {
   margin-bottom: 1em;
 }
 
