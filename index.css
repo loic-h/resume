@@ -214,6 +214,11 @@ section:not(:last-child) {
   }
 
   @page { margin: 0; }
+
+  .container > div:last-child {
+    margin: 0;
+    padding: 0;
+  }
 }
 
 @media screen and (min-width: 440px) {
