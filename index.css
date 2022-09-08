@@ -2,6 +2,7 @@
 :root {
   --font-size: 1em;
   --font-size-big: 1.25em;
+  --font-size-big-print: 1em;
   --font-size-small: 0.75em;
   --regular: 300;
   --bold: 600;
@@ -210,14 +211,22 @@ section:not(:last-child) {
   }
 
   body {
-    margin: 4em;
+    margin: 1.5em 4em;
   }
 
   @page { margin: 0; }
 
+  .container > div {
+    margin-bottom: 1em;
+  }
+
   .container > div:last-child {
     margin: 0;
     padding: 0;
+  }
+
+  .position {
+    font-size: var(--font-size-big-print);
   }
 }
 
