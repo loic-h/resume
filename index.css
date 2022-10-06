@@ -135,6 +135,7 @@ section:not(:last-child) {
 
 .date li:not(:last-child):after {
   content: "_";
+  margin: 0 0.2em;
 }
 
 .date:after {
@@ -152,6 +153,7 @@ section:not(:last-child) {
 
 .company + .place:before {
   content: "_";
+  margin: 0 0.2em;
 }
 
 .description p {
@@ -227,6 +229,12 @@ section:not(:last-child) {
 
   .position {
     font-size: var(--font-size-big-print);
+  }
+
+  @supports (-moz-appearance:none) {
+    html, body {
+      font-size: 0.87rem;
+    }
   }
 }
 
