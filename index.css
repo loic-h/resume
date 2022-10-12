@@ -157,7 +157,7 @@ section:not(:last-child) {
 }
 
 .description p {
-  margin: 0;
+  margin: 0 0 0.2em 0;
 }
 
 .description ul li:before {
@@ -218,13 +218,21 @@ section:not(:last-child) {
 
   @page { margin: 0; }
 
-  .container > div {
-    margin-bottom: 1em;
+  .container {
+    grid-template-columns: repeat(4, 1fr);
   }
 
-  .container > div:last-child {
-    margin: 0;
+  .container > div {
     padding: 0;
+  }
+
+  .experience,
+  .education {
+    grid-column: auto / span 3;
+  }
+
+  section {
+    margin-bottom: 0.2em;
   }
 
   .position {
