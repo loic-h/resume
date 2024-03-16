@@ -244,6 +244,10 @@ section:not(:last-child) {
       font-size: 0.87rem;
     }
   }
+
+  .hide-on-print {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 440px) {
