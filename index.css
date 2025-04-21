@@ -213,7 +213,7 @@ section:not(:last-child) {
   }
 
   body {
-    margin: 1.5em 4em;
+    margin: 1em 4em;
   }
 
   @page { margin: 0; }
