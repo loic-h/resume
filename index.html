@@ -83,6 +83,14 @@
           <li>German (C1)</li>
         </ul>
       </div>
+
+      <div class="actions hide-on-print">
+        <ul>
+          <li>
+            <button class="download">Download resume</button>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 
@@ -271,4 +279,9 @@
 </div>
 
 </body>
+<script>
+  document.querySelector(".download").addEventListener("click", () => {
+    window.print();
+  });
+</script>
 </html>
