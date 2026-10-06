@@ -1,0 +1,19 @@
+/* ------------------------------------------------------------------
+ * utilities.scss — pxToRem helper
+ * ------------------------------------------------------------------ */
+
+/// Convert pixel values to rem based on base font size (16px)
+/// @param {Number} $px - value in pixels
+/// @return {Number} - value in rem
+@function pxToRem($px) {
+  @if unitless($px) {
+    @return ($px / 16) * 1rem;
+  } @else {
+    @warn "pxToRem expects a unitless number, got: #{$px}";
+  }
+}
+
+/* Example usage:
+ *   font-size: pxToRem(20); → 1.25rem
+ *   padding: pxToRem(16) 0;  → 1rem 0
+ */

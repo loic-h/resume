@@ -1,0 +1,27 @@
+---
+import Hero from "../components/Hero.astro";
+import Skills from "../components/Skills.astro";
+import Experience from "../components/Experience.astro";
+import Education from "../components/Education.astro";
+import type { InferEntrySchema } from "astro:content";
+
+interface Props {
+  data: InferEntrySchema<"resume">;
+}
+
+const { data } = Astro.props;
+---
+
+<div class="container">
+  <Hero
+    name={data.name}
+    title={data.title}
+    contact={data.contact}
+    description={data.description}
+  />
+  <Skills {...data.skills} />
+  {data.experience && <Experience {...data.experience} />}
+  {data.education && <Education {...data.education} />}
+</div>
+
+<style lang="scss"></style>

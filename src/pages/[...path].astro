@@ -1,9 +1,8 @@
 ---
+import "../styles/main.scss";
+
 import { getCollection, getEntry, type CollectionEntry } from "astro:content";
-import Hero from "../components/Hero.astro";
-import Skills from "../components/Skills.astro";
-import Experience from "../components/Experience.astro";
-import Education from "../components/Education.astro";
+import Layout from "../components/Layout.astro";
 
 export async function getStaticPaths() {
   const resumes = await getCollection("resume");
@@ -39,14 +38,36 @@ const { data } = resume;
     <title>{data.name} – {data.title}</title>
   </head>
   <body>
-    <Hero
-      name={data.name}
-      title={data.title}
-      contact={data.contact}
-      description={data.description}
-    />
-    <Skills {...data.skills} />
-    {data.experience && <Experience {...data.experience} />}
-    {data.education && <Education {...data.education} />}
+    <Layout data={data} />
   </body>
 </html>
+
+<style lang="scss">
+  html {
+    font-family: var(--font-family-main);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
+    color: var(--color-dark);
+    background-color: var(--color-light);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Focus visible for accessibility */
+  :focus-visible {
+    outline: 2px solid red;
+    outline-offset: var(--space-4);
+  }
+
+  /* Selection color */
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-light);
+  }
+</style>

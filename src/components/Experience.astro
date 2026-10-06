@@ -40,19 +40,16 @@ const { title, items } = Astro.props;
           )}
 
           {responsibilities && responsibilities.length > 0 && (
-            <div class="experience-item__responsibilities">
-              <h4 class="sr-only">Responsibilities</h4>
-              <ul>
-                {responsibilities.map(({ title, description }) => (
-                  <li class="responsibility">
-                    <h5 class="responsibility__title">{title}</h5>
-                    {description && (
-                      <p class="responsibility__description">{description}</p>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <ul class="experience-item__responsibilities">
+              {responsibilities.map(({ title, description }) => (
+                <li class="responsibility">
+                  <h5 class="responsibility__title">{title}</h5>
+                  {description && (
+                    <p class="responsibility__description">{description}</p>
+                  )}
+                </li>
+              ))}
+            </ul>
           )}
         </div>
       ),

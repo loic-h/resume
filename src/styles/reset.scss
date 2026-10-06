@@ -1,0 +1,57 @@
+/* ------------------------------------------------------------------
+ * reset.scss — Minimal CSS reset for semantic form/HTML elements
+ * ------------------------------------------------------------------ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  /* Prevent font-size inflation */
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin / padding on body-like elements */
+body,
+h1, h2, h3, h4, h5, h6,
+p, figure, blockquote, dl, dd {
+  margin: 0;
+}
+
+/* Headings: neutral weight so components control sizing */
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* List: clear default indentation — components re-apply as needed */
+ul, ol {
+  padding: 0;
+  list-style: none;
+}
+
+/* Inline / semi-inline elements */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+img, picture, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Inherit fonts for inputs */
+input::placeholder,
+textarea::placeholder {
+  opacity: 0.5;
+  color: currentColor;
+}

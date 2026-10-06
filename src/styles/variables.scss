@@ -1,0 +1,42 @@
+/* ------------------------------------------------------------------
+ * variables.scss — Design tokens (CSS custom properties)
+ * ------------------------------------------------------------------ */
+ @use "./utilities" as *;
+
+:root {
+  /* Colors */
+  --color-dark: #221212;
+  --color-light: #FDFDF4;
+
+  --color-accent: #c8a96e;
+  --color-accent-hover: #dbbc82;
+
+  /* Spacing (base 4) */
+  --space-4: #{pxToRem(4)};
+  --space-8: #{pxToRem(8)};
+  --space-16: #{pxToRem(16)};
+  --space-24: #{pxToRem(24)};
+  --space-32: #{pxToRem(32)};
+
+
+  /* Font sizes (in rem, base = 16px) */
+  --font-size-base: #{pxToRem(16)};
+  --font-size-m: #{pxToRem(20)};
+  --font-size-l: #{pxToRem(24)};
+  --font-size-xl: #{pxToRem(48)};
+
+  /* Font weights */
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
+  /* Font family */
+  --font-family-sans: "DM Sans", sans-serif;
+
+  --color-font: var(--color-dark);
+  --color-background: var(--color-light);
+}
+
+[data-theme="dark"] {
+  --color-font: #FDFDF4;
+  --color-background: #221212;
+}
