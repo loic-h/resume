@@ -1,0 +1,29 @@
+---
+interface Props {
+  title: string;
+  items: Array<{
+    institute: string;
+    title: string;
+    place: string;
+    time: string;
+  }>;
+}
+
+const { title, items } = Astro.props;
+---
+
+<section class="education">
+  <h2 class="education__title">{title}</h2>
+  <ul class="education__items">
+    {items.map(({ title, institute, place, time }) => (
+      <li class="education__item">
+        <p class="education__institute">{institute}</p>
+        <h3 class="education__title">{title}</h3>
+        <p class="education__info">
+          <span class="education__place">{place}</span>
+          <soan class="education__time">{time}</soan>
+        </p>
+      </li>
+    ))}
+  </ul>
+</section>

@@ -1,5 +1,9 @@
 ---
 import { getCollection, getEntry, type CollectionEntry } from "astro:content";
+import Hero from "../components/Hero.astro";
+import Skills from "../components/Skills.astro";
+import Experience from "../components/Experience.astro";
+import Education from "../components/Education.astro";
 
 export async function getStaticPaths() {
   const resumes = await getCollection("resume");
@@ -8,15 +12,21 @@ export async function getStaticPaths() {
       path: id,
     },
   }));
-  console.log(params);
   return params;
 }
 
 const { path } = Astro.params;
 
-const { data } = await getEntry("resume", path);
+const resume = await getEntry("resume", path);
 
-console.log(data);
+if (!resume) {
+  // TODO: custom error page
+  return new Response("404 Not Found", {
+    status: 404,
+  });
+}
+
+const { data } = resume;
 ---
 
 <html lang="en">
@@ -26,9 +36,17 @@ console.log(data);
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>{data.name} – {data.title}</title>
   </head>
   <body>
-    <h1>{data.name}</h1>
+    <Hero
+      name={data.name}
+      title={data.title}
+      contact={data.contact}
+      description={data.description}
+    />
+    <Skills {...data.skills} />
+    {data.experience && <Experience {...data.experience} />}
+    {data.education && <Education {...data.education} />}
   </body>
 </html>

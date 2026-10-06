@@ -1,5 +1,252 @@
-{
-  "id": "ui-emgineer",
-  "name": "Loïc Hamet",
-  "title": "UI Engineer"
-}
+name: Loïc Hamet
+title: UI Engineer
+contact:
+  place: Valloire, France
+  phone: env:PHONE
+  email: env:EMAIL
+  links:
+    - linkedin.com/in/loiic/
+    - setsetset.net
+    - github.com/loic-h
+description: With 15+ years of international experience, I build performant, accessible user interfaces with a focus on UX and clean design, backed by a graphic design background. I love Design Systems, and I've spent years convincing teams that constraints actually make them better creators.
+skills:
+  title: Skills
+  list:
+    - title: Languages
+      items:
+        - French (native)
+        - English (professional)
+        - German (C1)
+    - title: Frontend
+      items:
+        - TypeScript
+        - JavaScript
+        - React
+        - VueJS
+        - StencilJS
+        - HTML
+        - CSS/SASS
+        - TailwindCSS
+        - BEM
+    - title: Design
+      items:
+        - Figma
+        - Sketch
+        - Adobe Suite (Ps, Ai, iD, Xd)
+        - Atomic design
+    - title: Design Systems
+      items:
+        - Design tokens
+        - Style Dictionary
+        - Storybook
+        - Chromatic
+        - Zeroheight
+        - Figma variables
+    - title: Tooling & Infra
+      items:
+        - Vite
+        - NPM / PNPM
+        - Webpack
+        - Git
+        - GitHub Actions (CI/CD)
+        - docker
+        - Ansible
+        - Monorepo
+    - title: Backend
+      items:
+        - Ruby on Rails
+        - PHP
+        - NodeJS,
+        - MongoDB
+        - MySQL
+    - title: Testing
+      items:
+        - Jest
+        - Vitest
+        - TDD
+        - visual regression
+        - Unit / Functional / E2E
+    - title: Accessibility
+      items:
+        - WCAG 2.2
+        - RGAA 4
+
+experience:
+  title: Experience
+  items:
+    - company: setsetset
+      position: Founder & Full-Stack Developer
+      place: Valloire, FR
+      time:
+        start: Nov 2025
+        end: Present
+      description: >-
+        setsetset is my digital communication agency, providing web strategy,
+        design, and development for small business clients.
+      responsibilities:
+        - title: Client Relationship & Product Definition
+          description: >-
+            Drive client relationship from initial discovery through to delivery.
+            Surface client needs and translate them into detailed technical and
+            design specifications.
+        - title: Design
+          description: >-
+            Design custom interfaces in Figma, from concept to high-fidelity
+            prototypes, tailored to each client's brand and goals.
+        - title: Development
+          description: >-
+            Build frontend applications with Astro and backend systems with
+            Payload CMS, in a monorepo architecture around pnpm workspaces and
+            docker compose.
+        - title: DevOps & Infrastructure
+          description: >-
+            Set up fast, idempotent one-line deployments and environment
+            reproducibility using Infrastructure as Code (Ansible, Docker,
+            GitHub Actions), with self-hosted analytics and incremental backups.
+
+    - company: Alasco
+      position: Design System Lead
+      place: Munich, DE
+      time:
+        start: Feb 2023
+        end: Jun 2025
+      description: >-
+        Alasco builds financial management software for the real estate sector.
+        I was the sole engineer responsible for the design system, supporting
+        multiple product teams.
+      responsibilities:
+        - title: System Architecture
+          description: >-
+            Solely responsible for auditing, redesigning, and maintaining the
+            internal Design System. Improved design / engineer handovers and
+            their experience with the definition of new token foundations
+            (colors, spacing, typography, elevation), implemented them in Figma
+            Variables and automated code generation via custom scripts (JSON to
+            Tailwind / CSS / JS / TS).
+        - title: Automation & CI/CD
+          description: >-
+            Automation of delivery pipelines for library versioning, delivery
+            and testing. Automated icon generation (Figma to React components)
+            using GitHub Actions, increasing release speed and eliminating drift
+            between design and code.
+        - title: Product Strategy
+          description: >-
+            Defined the technical roadmap in collaboration with product
+            stakeholders. Detailed technical specifications, acceptance criteria
+            and API requirements for new UI components, taking into account user
+            journey, technical requirements and accessibility.
+        - title: Engineering Culture
+          description: >-
+            Promoted the Design System usage while mentoring engineers,
+            designers and product managers across 7 teams on topic such as code
+            quality and accessibility compliance (WCAG 2.2). Implemented
+            AI-ready documentation rules for AI-assisted code generation tools.
+
+    - company: Red Bull Media House
+      position: Design System Tech Lead
+      place: Salzburg, AT
+      time:
+        start: May 2021
+        end: Aug 2022
+      description: >-
+        Red Bull Media House produces and distributes sports and lifestyle media
+        content. I led the technical direction of the design system team
+        delivering components to internal and external teams.
+      responsibilities:
+        - title: Leadership
+          description: >-
+            Provided technical insights for product roadmaps and defined good
+            practices for external contractors, ensuring deliverable consistency.
+            Mentored external engineers on the design system team. Aligned with
+            internal teams on design system usage.
+        - title: Web Components
+          description: >-
+            Led the development of a reusable component library using StencilJS
+            and Web Components to ensure consistency across internal and
+            external consumer apps.
+        - title: Quality Assurance
+          description: >-
+            Defined workflows for specifications, quality assurance, documentation standards.
+
+    - company: Blinkist
+      position: Senior Web Engineer
+      place: Berlin, DE
+      time:
+        start: Sep 2018
+        end: Mar 2021
+      description: >-
+        Blinkist offers audio and text book summaries. I was part of the web
+        team focused on growth, user acquisition, and the web reader.
+      responsibilities:
+        - title: Migration
+          description: >-
+            Led the migration from legacy Rails static templates and jQuery to a
+            modern JavaScript codebase using VueJS and Vuex. Improved developer
+            velocity and performance.
+        - title: UI Library
+          description: >-
+            Built a web tokens and component library in close collaboration with
+            product designers, enabling faster A/B test implementation.
+        - title: Standards
+          description: >-
+            Established frontend style guides for HTML/CSS/JS and mentored
+            junior developers on modern language features and best practices.
+
+    - company: Neonaut - CDLX
+      position: Web Developer
+      place: Berlin, DE
+      time:
+        start: Jun 2014
+        end: Oct 2016
+      description: >-
+        Codeluxe is a digital design studio serving clients such as Phönix
+        Design, Selux, Bundesverband der Deutschen Industrie.
+      responsibilities:
+        - title: Development
+          description: >-
+            Delivered high-quality interactive experiences and showcase websites.
+            Built full-stack sites using PHP (Kirby CMS) and JavaScript
+            frameworks.
+
+    - company: Freelance
+      position: Web Developer & Consultant
+      place: On-site or remote, EU
+      time:
+        start: Nov 2010
+        end: May 2021
+      description: >-
+        Alongside and between full-time positions, I took on freelance projects
+        for startups, design studios, communication and advertisement agencies.
+      responsibilities:
+        - title: Web development
+          description: >-
+            Built 20+ websites and web apps, from campaign microsites to
+            e-commerce websites and custom CMS. Worked with React, VueJS,
+            Astro, PayloadCMS, KirbyCMS, Node, Mongo.
+        - title: Consulting
+          description: >-
+            Advised clients on stack choices and led effort for migrations to
+            new technologies.
+
+education:
+  title: Education & Certifications
+  items:
+    - institute: NN/Group
+      title: Design Systems and Pattern Libraries
+      place: Online
+      time: "2024"
+
+    - institute: Supcréa
+      title: Graphic Designer degree
+      place: Grenoble, FR
+      time: "2007"
+
+    - institute: Université Joseph Fourier
+      title: 2-year technical degree (DUT) in Telecommunication & Network
+      place: Grenoble, FR
+      time: "2002"
+
+    - institute: Lycée du Granier
+      title: High School Diploma (Baccalauréat)
+      place: La Ravoire, FR
+      time: "1999"

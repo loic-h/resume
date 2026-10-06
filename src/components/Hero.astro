@@ -1,0 +1,43 @@
+---
+import { Image } from "astro:assets";
+import ProfileImage from "../assets/images/profil.webp";
+
+interface Props {
+  name: string;
+  title: string;
+  description: string;
+  contact: {
+    place: string;
+    phone: string;
+    email: string;
+    links: Array<string>;
+  };
+}
+
+const { name, title, description, contact } = Astro.props;
+---
+
+<section class="hero">
+  <Image class="hero__image" src={ProfileImage} alt="Portrait of Loïc Hamet" />
+  <div class="hero__header">
+    <h1 class="hero__name">{name}</h1>
+    <h2 class="hero__title">{title}</h2>
+  </div>
+  <div class="contact">
+    <ul class="contact__group">
+      <li class="contact__item">{contact.place}</li>
+      <li class="contact__item">{contact.phone}</li>
+      <li class="contact__item">
+        <a href={`mailto:${contact.email}`}>{contact.email}</a>
+      </li>
+    </ul>
+    <ul class="contact__group">
+      {contact.links.map((link) => (
+        <li class="contact__item">
+          <a href={link}>{link}</a>
+        </li>
+      ))}
+    </ul>
+  </div>
+  <p class="hero__description">{description}</p>
+</section>
