@@ -40,18 +40,19 @@ a {
   text-decoration: none;
 }
 
-button, input, select, textarea {
-  font: inherit;
+button {
+  outline: none;
+  appearance: none;
+  background: none;
+  color: inherit;
+  border: none;
+  font-size: inherit;
+  padding: 0;
 }
+
+
 
 img, picture, svg {
   display: block;
   max-width: 100%;
-}
-
-/* Inherit fonts for inputs */
-input::placeholder,
-textarea::placeholder {
-  opacity: 0.5;
-  color: currentColor;
 }

@@ -37,37 +37,27 @@ const { data } = resume;
     <meta name="generator" content={Astro.generator} />
     <title>{data.name} – {data.title}</title>
   </head>
-  <body>
+  <body data-theme="light">
     <Layout data={data} />
   </body>
 </html>
 
 <style lang="scss">
+  @use "../styles/utilities" as *;
+
   html {
-    font-family: var(--font-family-main);
-    font-size: var(--font-size-base);
-    line-height: var(--line-height-normal);
-    color: var(--color-dark);
-    background-color: var(--color-light);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   body {
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-base);
+    color: var(--color-font);
+    background-color: var(--color-background);
     min-height: 100dvh;
     display: flex;
     flex-direction: column;
-  }
-
-  /* Focus visible for accessibility */
-  :focus-visible {
-    outline: 2px solid red;
-    outline-offset: var(--space-4);
-  }
-
-  /* Selection color */
-  ::selection {
-    background-color: var(--color-accent);
-    color: var(--color-light);
+    @include transition("color, background-color");
   }
 </style>

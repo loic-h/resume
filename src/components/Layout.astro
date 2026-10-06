@@ -4,6 +4,7 @@ import Skills from "../components/Skills.astro";
 import Experience from "../components/Experience.astro";
 import Education from "../components/Education.astro";
 import type { InferEntrySchema } from "astro:content";
+import ThemeToggle from "./ThemeToggle.astro";
 
 interface Props {
   data: InferEntrySchema<"resume">;
@@ -13,6 +14,11 @@ const { data } = Astro.props;
 ---
 
 <div class="container">
+  <ul class="actions">
+    <li>
+      <ThemeToggle />
+    </li>
+  </ul>
   <Hero
     name={data.name}
     title={data.title}

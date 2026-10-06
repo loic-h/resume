@@ -5,7 +5,7 @@
 
 :root {
   /* Colors */
-  --color-dark: #221212;
+  --color-dark: #090911;
   --color-light: #FDFDF4;
 
   --color-accent: #c8a96e;
@@ -32,11 +32,15 @@
   /* Font family */
   --font-family-sans: "DM Sans", sans-serif;
 
+  /* Transition */
+  --ease-time: 150ms;
+  --ease-function: ease-in-out;
+
   --color-font: var(--color-dark);
   --color-background: var(--color-light);
 }
 
 [data-theme="dark"] {
-  --color-font: #FDFDF4;
-  --color-background: #221212;
+  --color-font: var(--color-light);
+  --color-background: var(--color-dark);
 }

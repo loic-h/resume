@@ -1,0 +1,87 @@
+---
+import IconDark from "../assets/svg/icon-dark.svg";
+import IconLight from "../assets/svg/icon-light.svg";
+---
+
+<button class="theme-toggle" data-theme-trigger>
+  <span class="theme-toggle__icon theme-toggle__icon--dark">
+    <IconDark />
+  </span>
+  <span class="theme-toggle__icon theme-toggle__icon--light">
+    <IconLight />
+  </span>
+</button>
+
+<script>
+  type Theme = "dark" | "light";
+
+  /**
+   * Automatically set theme on preferred color change
+   */
+  const detectTheme = () => {
+    console.log("detectTheme");
+    let storedTheme = localStorage.getItem("theme") as Theme;
+    if (storedTheme) {
+      setTheme(storedTheme);
+    } else if (window.matchMedia("(prefers-color-scheme: dark)")) {
+      setTheme("dark");
+    }
+
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", (event) => {
+        const theme = event.matches ? "dark" : "light";
+        setTheme(theme);
+      });
+    console.log(document.querySelector("[data-theme-trigger]"));
+    document
+      .querySelector("[data-theme-trigger]")
+      ?.addEventListener("click", () => {
+        toggleTheme();
+      });
+  };
+
+  /**
+   * Set color theme
+   */
+  const setTheme = (theme: Theme) => {
+    const dataset = document.querySelector("body")?.dataset;
+    if (!dataset) {
+      return;
+    }
+    dataset.theme = theme;
+    localStorage.setItem("theme", theme);
+  };
+
+  const toggleTheme = () => {
+    const dataset = document.querySelector("body")?.dataset;
+    if (!dataset) {
+      return;
+    }
+    let theme: Theme = dataset.theme as Theme;
+    if (theme === "dark") {
+      theme = "light";
+    } else {
+      theme = "dark";
+    }
+    setTheme(theme);
+  };
+
+  detectTheme();
+</script>
+
+<style lang="scss">
+  .theme-toggle {
+    cursor: pointer;
+
+    &__icon {
+      :global([data-theme="dark"]) &--light {
+        display: none;
+      }
+
+      :global([data-theme="light"]) &--dark {
+        display: none;
+      }
+    }
+  }
+</style>
