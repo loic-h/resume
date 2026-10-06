@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import ProfileImage from "../assets/images/profil.webp";
+import ProfileImage from "../assets/images/profil.png";
 
 interface Props {
   name: string;
@@ -18,7 +18,13 @@ const { name, title, description, contact } = Astro.props;
 ---
 
 <section class="hero">
-  <Image class="hero__image" src={ProfileImage} alt="Portrait of Loïc Hamet" />
+  <div class="hero__image-wrapper">
+    <Image
+      class="hero__image"
+      src={ProfileImage}
+      alt="Portrait of Loïc Hamet"
+    />
+  </div>
   <div class="hero__header">
     <h1 class="hero__name">{name}</h1>
     <h2 class="hero__title">{title}</h2>
@@ -39,5 +45,74 @@ const { name, title, description, contact } = Astro.props;
       ))}
     </ul>
   </div>
+  <div class="divider"></div>
   <p class="hero__description">{description}</p>
 </section>
+
+<style lang="scss">
+  @use "../styles/utilities" as *;
+
+  .hero {
+    --padding-top: var(--space-64);
+
+    padding-top: var(--padding-top);
+    display: grid;
+    grid-template-columns: var(--grid-template-columns);
+    row-gap: var(--grid-row-gap);
+    column-gap: var(--grid-col-gap);
+
+    &__image-wrapper {
+      background-color: var(--color-light);
+      border-radius: var(--radius-16);
+      width: 100%;
+      overflow: hidden;
+      grid-column: 4 / span 2;
+    }
+
+    &__image {
+      width: 100%;
+      height: auto;
+      mix-blend-mode: luminosity;
+      filter: grayscale(1);
+    }
+
+    &__header {
+      grid-column: 4 / span 5;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      line-height: 3em;
+    }
+
+    &__name {
+      font-weight: var(--font-weight-bold);
+      font-size: var(--font-size-xl);
+    }
+
+    &__title {
+      font-weight: var(--font-weight-normal);
+      font-size: var(--font-size-xl);
+    }
+
+    &__description {
+      grid-column: 4 / span 5;
+    }
+  }
+
+  .contact {
+    grid-column: 9 / -1;
+    display: grid;
+    grid-template-columns: subgrid;
+    align-content: flex-end;
+
+    &__group {
+      grid-column: span 2;
+    }
+  }
+
+  .divider {
+    grid-column: 4 / -1;
+    height: #{pxToRem(2)};
+    background-color: var(--color-font);
+  }
+</style>

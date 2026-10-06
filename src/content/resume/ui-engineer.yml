@@ -6,8 +6,8 @@ contact:
   email: env:EMAIL
   links:
     - linkedin.com/in/loiic/
-    - setsetset.net
     - github.com/loic-h
+    - setsetset.net
 description: With 15+ years of international experience, I build performant, accessible user interfaces with a focus on UX and clean design, backed by a graphic design background. I love Design Systems, and I've spent years convincing teams that constraints actually make them better creators.
 skills:
   title: Skills

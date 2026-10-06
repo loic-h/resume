@@ -14,11 +14,13 @@ const { data } = Astro.props;
 ---
 
 <div class="container">
-  <ul class="actions">
-    <li>
-      <ThemeToggle />
-    </li>
-  </ul>
+  <div class="header">
+    <ul class="actions">
+      <li>
+        <ThemeToggle />
+      </li>
+    </ul>
+  </div>
   <Hero
     name={data.name}
     title={data.title}
@@ -30,4 +32,21 @@ const { data } = Astro.props;
   {data.education && <Education {...data.education} />}
 </div>
 
-<style lang="scss"></style>
+<style lang="scss">
+  @use "../styles/utilities" as *;
+
+  .container {
+    --padding: var(--space-16) var(--space-48) var(--space-48);
+    max-width: var(--layout-max-width);
+    padding: var(--padding);
+  }
+
+  .header {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .actions {
+    display: flex;
+  }
+</style>

@@ -2,12 +2,14 @@
  * utilities.scss — pxToRem helper
  * ------------------------------------------------------------------ */
 
+ @use "sass:math";
+
 /// Convert pixel values to rem based on base font size (16px)
 /// @param {Number} $px - value in pixels
 /// @return {Number} - value in rem
 @function pxToRem($px) {
-  @if unitless($px) {
-    @return ($px / 16) * 1rem;
+  @if math.is-unitless($px) {
+    @return math.div($px, 16) * 1rem;
   } @else {
     @warn "pxToRem expects a unitless number, got: #{$px}";
   }
