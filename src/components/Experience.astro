@@ -28,6 +28,7 @@ const { title, items } = Astro.props;
         <div class="experience-item">
           <h4 class="experience-item__company">{company}</h4>
           <h3 class="experience-item__position">{position}</h3>
+          <div class="divider" />
           <ul class="experience-item__info">
             <li class="experience-item__place">{place}</li>
             <li class="experience-item__time">
@@ -56,3 +57,111 @@ const { title, items } = Astro.props;
     )}
   </div>
 </section>
+
+<style lang="scss">
+  @use "../styles/utilities" as *;
+
+  .experience {
+    display: grid;
+    grid-template-columns: var(--grid-template-columns);
+    column-gap: var(--grid-col-gap);
+    row-gap: var(--grid-row-gap);
+    column-gap: var(--grid-col-gap);
+
+    &__title {
+      grid-column: span var(--grid-col-1-span);
+      font-size: var(--font-size-l);
+      font-weight: var(--font-weight-bold);
+    }
+
+    &__items {
+      grid-column: var(--grid-col-2-start) / -1;
+      display: grid;
+      grid-template-columns: subgrid;
+      row-gap: var(--space-48);
+    }
+  }
+
+  .experience-item {
+    --gap-company-end: var(--space-4);
+    --gap-divider: var(--space-16);
+    --gap-info-end: var(--space-24);
+
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: subgrid;
+    align-items: start;
+    grid-template-rows: repeat(4, auto) 1fr;
+
+    &__company {
+      font-size: var(--font-size-m);
+      font-weight: var(--font-weight-bold);
+      grid-column: 1 / -1;
+      grid-row: 1;
+      margin-block-end: var(--gap-company-end);
+    }
+
+    &__position {
+      font-size: var(--font-size-l);
+      font-weight: var(--font-weight-bold);
+      grid-column: 1 / -1;
+      grid-row: 2;
+    }
+
+    &__info {
+      grid-column: 1 / span 3;
+      grid-row: 4;
+      margin-block-end: var(--gap-info-end);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    &__time {
+      display: flex;
+      gap: var(--space-4);
+
+      & span {
+        display: flex;
+        gap: var(--space-4);
+
+        &:first-child:after {
+          content: "→";
+        }
+      }
+    }
+
+    &__description {
+      grid-column: 1 / span 3;
+      grid-row: 5;
+    }
+
+    &__responsibilities {
+      grid-column: 4 / -1;
+      grid-row: 4 / -1;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-16);
+    }
+  }
+
+  .divider {
+    height: #{pxToRem(2)};
+    grid-column: 1 / -1;
+    background-color: var(--color-font);
+    grid-row: 3;
+    margin-block-end: var(--gap-divider);
+    margin-block-start: var(--gap-divider);
+  }
+
+  .responsibility {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+
+    &__title {
+      font-size: var(--font-size-base);
+      font-weight: var(--font-weight-bold);
+    }
+  }
+</style>
