@@ -54,6 +54,7 @@ const { name, title, description, contact } = Astro.props;
 
   .hero {
     --padding-top: var(--space-64);
+    --header-span: 5;
 
     padding-top: var(--padding-top);
     display: grid;
@@ -66,7 +67,7 @@ const { name, title, description, contact } = Astro.props;
       border-radius: var(--radius-16);
       width: 100%;
       overflow: hidden;
-      grid-column: 4 / span 2;
+      grid-column: var(--grid-col-2-start) / span 2;
     }
 
     &__image {
@@ -77,7 +78,7 @@ const { name, title, description, contact } = Astro.props;
     }
 
     &__header {
-      grid-column: 4 / span 5;
+      grid-column: var(--grid-col-2-start) / span var(--header-span);
       display: flex;
       flex-direction: column;
       gap: var(--space-4);
@@ -95,12 +96,12 @@ const { name, title, description, contact } = Astro.props;
     }
 
     &__description {
-      grid-column: 4 / span 5;
+      grid-column: var(--grid-col-2-start) / span 5;
     }
   }
 
   .contact {
-    grid-column: 9 / -1;
+    grid-column: calc(var(--grid-col-2-start) + var(--header-span)) / -1;
     display: grid;
     grid-template-columns: subgrid;
     align-content: flex-end;
@@ -111,7 +112,7 @@ const { name, title, description, contact } = Astro.props;
   }
 
   .divider {
-    grid-column: 4 / -1;
+    grid-column: var(--grid-col-2-start) / -1;
     height: #{pxToRem(2)};
     background-color: var(--color-font);
   }
