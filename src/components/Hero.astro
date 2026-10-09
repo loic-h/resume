@@ -53,21 +53,35 @@ const { name, title, description, contact } = Astro.props;
   @use "../styles/utilities" as *;
 
   .hero {
+    --title-font-size: var(--font-size-xl);
     --padding-top: var(--space-64);
-    --header-span: 5;
+    --img-max-width: #{pxToRem(120)};
+    --image-col-start: 1;
+    --image-col-end: -1;
+    --header-col-start: 1;
+    --header-col-end: -1;
+    --contact-col-start: 1;
+    --contact-col-end: -1;
+    --divider-col-start: 1;
+    --divider-col-end: -1;
+    --description-col-start: 1;
+    --description-col-end: -1;
+    --contact-group-span: 1;
+    --image-row: unset;
+    --contact-row: unset;
 
     padding-top: var(--padding-top);
-    display: grid;
-    grid-template-columns: var(--grid-template-columns);
-    row-gap: var(--grid-row-gap);
-    column-gap: var(--grid-col-gap);
+    @include grid;
+    row-gap: var(--space-24);
 
     &__image-wrapper {
       background-color: var(--color-light);
       border-radius: var(--radius-16);
       width: 100%;
       overflow: hidden;
-      grid-column: var(--grid-col-2-start) / span 2;
+      grid-column: var(--image-col-start) / var(--image-col-end);
+      grid-row: var(--image-row);
+      max-width: var(--img-max-width);
     }
 
     &__image {
@@ -78,42 +92,109 @@ const { name, title, description, contact } = Astro.props;
     }
 
     &__header {
-      grid-column: var(--grid-col-2-start) / span var(--header-span);
+      grid-column: var(--header-col-start) / var(--header-col-end);
       display: flex;
       flex-direction: column;
       gap: var(--space-4);
-      line-height: 3em;
+      line-height: 1em;
+      align-self: flex-end;
+      font-size: var(--title-font-size);
     }
 
     &__name {
       font-weight: var(--font-weight-bold);
-      font-size: var(--font-size-xl);
+      white-space: nowrap;
     }
 
     &__title {
       font-weight: var(--font-weight-normal);
-      font-size: var(--font-size-xl);
+      white-space: nowrap;
     }
 
     &__description {
-      grid-column: var(--grid-col-2-start) / span 5;
+      grid-column: var(--description-col-start) / var(--description-col-end);
+    }
+
+    .contact {
+      @include subgrid;
+      grid-column: var(--contact-col-start) / var(--contact-col-end);
+      align-content: flex-end;
+      align-self: flex-end;
+      row-gap: var(--space-8);
+      grid-row: var(--contact-row);
+
+      &__group {
+        grid-column: span var(--contact-group-span);
+      }
+    }
+
+    .divider {
+      grid-column: var(--divider-col-start) / var(--divider-col-end);
+      height: #{pxToRem(2)};
+      background-color: var(--color-font);
+    }
+
+    @include from(mobile) {
+      --img-max-width: auto;
+      --image-col-end: span 3;
+      --header-col-start: 1;
+      --header-col-end: span 3;
+      --contact-col-start: 6;
+      --contact-group-span: 3;
+      --description-col-end: span 7;
+    }
+
+    @include from(desktop) {
+      --title-font-size: var(--font-size-xxl);
+      --image-col-start: var(--grid-col-2-start);
+      --image-col-end: span 2;
+      --header-col-start: var(--grid-col-2-start);
+      --header-col-end: span 5;
+      --contact-col-start: calc(var(--grid-col-2-start) + 5);
+      --contact-col-end: -1;
+      --divider-col-start: var(--grid-col-2-start);
+      --divider-col-end: -1;
+      --description-col-start: var(--grid-col-2-start);
+      --description-col-end: span 5;
+      --contact-group-span: 2;
     }
   }
 
-  .contact {
-    grid-column: calc(var(--grid-col-2-start) + var(--header-span)) / -1;
-    display: grid;
-    grid-template-columns: subgrid;
-    align-content: flex-end;
+  @include print {
+    .hero {
+      --padding-top: 0;
+      --title-font-size: var(--font-size-xl);
+      --image-col-start: 11;
+      --image-col-end: end;
+      --header-col-start: 1;
+      --header-col-end: span 7;
+      --contact-col-start: 8;
+      --contact-col-end: span 3;
+      --divider-col-start: 1;
+      --divider-col-end: span 7;
+      --description-col-start: 1;
+      --description-col-end: span 7;
+      --contact-row: 1 / span 3;
+      --image-row: 1 / span 3;
+      --contact-group-span: 3;
+      --img-max-width: auto;
 
-    &__group {
-      grid-column: span 2;
+      grid-column: 1 / -1;
+
+      &__image-wrapper {
+        background-color: transparent;
+        position: relative;
+        align-self: stretch;
+        width: 100%;
+        justify-self: stretch;
+      }
+
+      &__image {
+        position: absolute;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
     }
-  }
-
-  .divider {
-    grid-column: var(--grid-col-2-start) / -1;
-    height: #{pxToRem(2)};
-    background-color: var(--color-font);
   }
 </style>

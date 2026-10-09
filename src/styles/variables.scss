@@ -19,14 +19,17 @@
   --space-32: #{pxToRem(32)};
   --space-48: #{pxToRem(48)};
   --space-64: #{pxToRem(64)};
+  --space-128: #{pxToRem(128)};
 
 
   /* Font sizes (in rem, base = 16px) */
+  --font-size-base: 16px;
   --font-size-s: #{pxToRem(14)};
-  --font-size-base: #{pxToRem(16)};
-  --font-size-m: #{pxToRem(20)};
-  --font-size-l: #{pxToRem(24)};
-  --font-size-xl: #{pxToRem(48)};
+  --font-size-m: var(--font-size-base);
+  --font-size-l: #{pxToRem(20)};
+  --font-size-xl: #{pxToRem(24)};
+  --font-size-xxl: #{pxToRem(32)};
+  --font-size-xxl: #{pxToRem(48)};
 
   /* Font weights */
   --font-weight-regular: 400;
@@ -42,17 +45,31 @@
   /* Radius */
   --radius-16: #{pxToRem(16)};
 
-  --layout-max-width: #{pxToRem(1200)};
+  --layout-max-width: #{pxToRem(1400)};
   --color-font: var(--color-dark);
   --color-background: var(--color-light);
-  --grid-row-gap: var(--space-32);
-  --grid-col-gap: var(--space-24);
-  --grid-template-columns:repeat(12, 1fr);
-  --grid-col-1-span: 3;
-  --grid-col-2-start: calc(var(--grid-col-1-span) + 1);
+  --body-row-gap: var(--space-64);
+  --body-col-gap: var(--space-24);
+  --exp-row-gap: var(--space-48);
+  --title-end: var(--space-32);
+
+  @include from(big-mobile) {
+    --body-row-gap: var(--space-128);
+    --exp-row-gap: var(--space-64);
+  }
+
+  @include print {
+    --font-size-base: 12px;
+    --body-row-gap: #{pxToRem(16)};
+    --body-col-gap: var(--space-32);
+    --color-background: transparent;
+    --color-font: black;
+  }
 }
 
-[data-theme="dark"] {
-  --color-font: var(--color-light);
-  --color-background: var(--color-dark);
+@media screen {
+  [data-theme="dark"] {
+    --color-font: var(--color-light);
+    --color-background: var(--color-dark);
+  }
 }

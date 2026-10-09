@@ -27,21 +27,30 @@ const { data } = Astro.props;
     contact={data.contact}
     description={data.description}
   />
-  <Skills {...data.skills} />
-  {data.experience && <Experience {...data.experience} />}
-  {data.education && <Education {...data.education} />}
+  <div class="body">
+    <Skills {...data.skills} />
+    {data.experience && <Experience {...data.experience} />}
+    {data.education && <Education {...data.education} />}
+  </div>
 </div>
 
 <style lang="scss">
   @use "../styles/utilities" as *;
 
   .container {
-    --padding: var(--space-16) var(--space-48) var(--space-48);
+    --padding-top: var(--space-16);
+    --padding-bottom: var(--space-64);
+    --padding-x: var(--space-16);
     max-width: var(--layout-max-width);
-    padding: var(--padding);
+    padding: var(--padding-top) var(--padding-x) var(--padding-bottom);
     display: flex;
     flex-direction: column;
-    gap: var(--space-64);
+    gap: var(--body-row-gap);
+    font-size: var(--font-size-m);
+  }
+
+  .body {
+    @include grid;
   }
 
   .header {
@@ -51,5 +60,35 @@ const { data } = Astro.props;
 
   .actions {
     display: flex;
+  }
+
+  @include from(mobile) {
+    .container {
+      --padding-x: var(--space-24);
+    }
+  }
+
+  @include from(big-mobile) {
+    .container {
+      --padding-x: var(--space-48);
+    }
+  }
+
+  @include print {
+    .container {
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-48);
+    }
+    .header {
+      display: none;
+    }
+
+    .body {
+      grid-template-rows: repeat(var(--total-exp), auto) 1fr;
+      align-items: flex-start;
+      row-gap: 0;
+    }
   }
 </style>

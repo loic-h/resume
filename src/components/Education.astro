@@ -32,23 +32,24 @@ const { title, items } = Astro.props;
   @use "../styles/utilities" as *;
 
   .education {
-    display: grid;
-    grid-template-columns: var(--grid-template-columns);
-    column-gap: var(--grid-col-gap);
-    row-gap: var(--grid-row-gap);
-    column-gap: var(--grid-col-gap);
+    --list-col-end: -1;
+    @include subgrid;
+    align-items: baseline;
+    grid-column: 1 / -1;
 
     &__title {
-      grid-column: span var(--grid-col-1-span);
+      @include first-col;
       font-size: var(--font-size-l);
       font-weight: var(--font-weight-bold);
+      margin-block-end: var(--title-end);
     }
 
     &__items {
-      grid-column: var(--grid-col-2-start) / -1;
-      display: grid;
-      grid-template-columns: subgrid;
+      @include second-col;
+      display: flex;
+      flex-direction: column;
       row-gap: var(--space-24);
+      grid-column-end: var(--list-col-end);
     }
   }
 
@@ -80,6 +81,47 @@ const { title, items } = Astro.props;
         &:after {
           content: "–";
         }
+      }
+    }
+  }
+
+  @include from(big-mobile) {
+    .education {
+      --list-col-end: span 6;
+    }
+  }
+
+  @include from(desktop) {
+    .education {
+      --list-col-end: span 4;
+    }
+  }
+
+  @include print {
+    .education {
+      --grid-columns: 1;
+      --body-row-gap: var(--space-8);
+
+      grid-column: 1 / span 3;
+      grid-row: 4 / -1;
+
+      &__items {
+        row-gap: var(--space-8);
+      }
+    }
+
+    .education-item {
+      &:before {
+        content: "";
+        height: #{pxToRem(2)};
+        width: 100%;
+        background-color: var(--color-font);
+        margin-block-end: var(--space-8);
+      }
+
+      &__institute {
+        text-transform: uppercase;
+        font-size: var(--font-size-s);
       }
     }
   }

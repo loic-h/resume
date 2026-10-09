@@ -12,6 +12,7 @@
     @return math.div($px, 16) * 1rem;
   } @else {
     @warn "pxToRem expects a unitless number, got: #{$px}";
+    @return null;
   }
 }
 

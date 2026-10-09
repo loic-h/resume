@@ -1,0 +1,42 @@
+@use "./media" as *;
+
+@mixin grid() {
+  --grid-columns: 1;
+  --grid-col-1-end: -1;
+  --grid-col-2-start: 1;
+  --rows: 1;
+
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), 1fr);
+  column-gap: var(--body-col-gap);
+  align-items: start;
+  grid-template-rows: repeat(var(--rows), auto) 1fr;
+
+  @include from(mobile) {
+    --grid-columns: 12;
+    --grid-col-1-end: 12;
+  }
+
+  @include from(desktop) {
+    --grid-col-1-end: 4;
+    --grid-col-2-start: calc(var(--grid-col-1-end));
+  }
+
+  @include print {
+    --grid-columns: 12;
+  }
+}
+
+@mixin subgrid() {
+  column-gap: var(--body-col-gap);
+  display: grid;
+  grid-template-columns: subgrid;
+}
+
+@mixin first-col() {
+  grid-column: 1 / var(--grid-col-1-end);
+}
+
+@mixin second-col() {
+  grid-column: var(--grid-col-2-start) / -1;
+}

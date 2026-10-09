@@ -56,7 +56,7 @@ skills:
       items:
         - Ruby on Rails
         - PHP
-        - NodeJS,
+        - NodeJS
         - MongoDB
         - MySQL
     - title: Testing

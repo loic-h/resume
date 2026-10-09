@@ -26,6 +26,7 @@ if (!resume) {
 }
 
 const { data } = resume;
+const totalExp = data.experience?.items.length;
 ---
 
 <html lang="en">
@@ -37,7 +38,7 @@ const { data } = resume;
     <meta name="generator" content={Astro.generator} />
     <title>{data.name} – {data.title}</title>
   </head>
-  <body data-theme="light">
+  <body data-theme="light" style={`--total-exp: ${totalExp}`}>
     <Layout data={data} />
   </body>
 </html>
@@ -48,11 +49,11 @@ const { data } = resume;
   html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-base);
   }
 
   body {
-    font-family: var(--font-family-sans);
-    font-size: var(--font-size-base);
     color: var(--color-font);
     background-color: var(--color-background);
     min-height: 100dvh;
