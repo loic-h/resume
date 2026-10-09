@@ -10,6 +10,12 @@ RUN npm install -g pnpm@10
 # -------------------------
 FROM base AS build
 
+ARG EMAIL
+ARG PHONE
+
+ENV EMAIL=$EMAIL
+ENV PHONE=$PHONE
+
 COPY . .
 RUN pnpm install
 RUN pnpm build
