@@ -22,3 +22,6 @@ jobs:
       registry: ghcr.io
       context: .
       dockerfile: Dockerfile
+      build_args: |
+        EMAIL=${{vars.EMAIL}}
+        PHONE=${{vars.PHONE}}

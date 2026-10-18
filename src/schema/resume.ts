@@ -1,20 +1,20 @@
-import { z } from 'astro/zod'
+import { z } from "astro/zod";
 
 const envString = z.string().transform((val, ctx) => {
-  if (!val.startsWith('env:')) return val
+  if (!val.startsWith("env:")) return val;
 
-  const key = val.slice('env:'.length)
-  const value = process.env[key] ?? import.meta.env[key]
+  const key = val.slice("env:".length);
+  const value = process.env[key] ?? import.meta.env[key];
 
   if (value === undefined) {
     ctx.addIssue({
-      code: 'custom',
+      code: "custom",
       message: `Missing environment variable: ${key}`,
-    })
-    return z.NEVER
+    });
+    return z.NEVER;
   }
-  return value
-})
+  return value;
+});
 
 export default z.object({
   title: z.string(),
@@ -28,35 +28,47 @@ export default z.object({
   }),
   skills: z.object({
     title: z.string(),
-    list: z.array(z.object({
-      title: z.string(),
-      items: z.array(z.string()),
-    })),
-  }),
-  experience: z.object({
-    title: z.string(),
-    items: z.array(z.object({
-      company: z.string(),
-      position: z.string(),
-      place: z.string(),
-      time: z.object({
-        start: z.string(),
-        end: z.union([z.string(), z.literal('Present')]),
-      }),
-      description: z.string().optional(),
-      responsibilities: z.array(z.object({
+    list: z.array(
+      z.object({
         title: z.string(),
-        description: z.string().optional(),
-      })),
-    })),
-  }).optional(),
-  education: z.object({
-    title: z.string(),
-    items: z.array(z.object({
-      institute: z.string(),
+        items: z.array(z.string()),
+      }),
+    ),
+  }),
+  experience: z
+    .object({
       title: z.string(),
-      place: z.string(),
-      time: z.string()
-    })),
-  }).optional(),
-})
+      items: z.array(
+        z.object({
+          company: z.string(),
+          position: z.string(),
+          place: z.string(),
+          time: z.object({
+            start: z.string(),
+            end: z.union([z.string(), z.literal("Present")]),
+          }),
+          description: z.string().optional(),
+          responsibilities: z.array(
+            z.object({
+              title: z.string(),
+              description: z.string().optional(),
+            }),
+          ),
+        }),
+      ),
+    })
+    .optional(),
+  education: z
+    .object({
+      title: z.string(),
+      items: z.array(
+        z.object({
+          institute: z.string(),
+          title: z.string(),
+          place: z.string(),
+          time: z.string(),
+        }),
+      ),
+    })
+    .optional(),
+});
