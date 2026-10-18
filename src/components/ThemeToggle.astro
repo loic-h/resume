@@ -19,7 +19,6 @@ import IconLight from "../assets/svg/icon-light.svg";
    * Automatically set theme on preferred color change
    */
   const detectTheme = () => {
-    console.log("detectTheme");
     let storedTheme = localStorage.getItem("theme") as Theme;
     if (storedTheme) {
       setTheme(storedTheme);
@@ -33,7 +32,7 @@ import IconLight from "../assets/svg/icon-light.svg";
         const theme = event.matches ? "dark" : "light";
         setTheme(theme);
       });
-    console.log(document.querySelector("[data-theme-trigger]"));
+
     document
       .querySelector("[data-theme-trigger]")
       ?.addEventListener("click", () => {
