@@ -1,0 +1,195 @@
+version: reconversion
+name: Loïc Hamet
+title: Candidat à une reconversion professionnelle
+
+contact:
+  place: Valloire, France
+  phone: env:PHONE
+  email: env:EMAIL
+  links:
+    - linkedin.com/in/loiic/
+
+description: >-
+  Professionnel avec plus de 15 ans d'expérience, habitué à mevner des projets
+  de bout en bout, à travailler avec méthode et à rechercher des solutions
+  concrètes. Issu du développement numérique et formé au design graphique, je souhaite
+  aujourd'hui me reconvertir vers un nouveau métier, en apprendre les méthodes,
+  et en acquérir progressivement les compétences propres.
+
+skills:
+  title: Compétences
+  list:
+    - title: Organisation et méthode
+      items:
+        - Planification et gestion des priorités
+        - Respect des délais et des objectifs
+        - Structuration et amélioration des méthodes de travail
+
+    - title: Rigueur et qualité
+      items:
+        - Attention aux détails et contrôle des résultats
+        - Respect des exigences et recherche d'amélioration
+        - Résolution durable des problèmes
+
+    - title: Autonomie et initiative
+      items:
+        - Gestion de projets de bout en bout
+        - Prise de responsabilités et résolution de problèmes
+        - Capacité à travailler de manière autonome
+
+    - title: Communication et collaboration
+      items:
+        - Écoute et compréhension des besoins
+        - Travail avec des interlocuteurs variés
+        - Transmission des connaissances et accompagnement
+
+    - title: Adaptabilité et apprentissage
+      items:
+        - Adaptation à différents environnements de travail
+        - Capacité à transformer un besoin en réalisation concrète
+        - Volonté d'acquérir de nouvelles compétences professionnelles
+
+    - title: Langues
+      items:
+        - Français (langue maternelle)
+        - Allemand (C1)
+        - Anglais (niveau professionnel)
+
+experience:
+  title: Expérience professionnelle
+  items:
+    - company: setsetset
+      position: Fondateur et indépendant
+      place: Valloire, France
+      time:
+        start: Nov 2025
+        end: Aujourd'hui
+      description: >-
+        Création et gestion d'une activité indépendante spécialisée dans la
+        communication numérique, accompagnant des petites entreprises dans
+        leurs projets.
+      responsibilities:
+        - title: Relation client et définition des besoins
+          description: >-
+            Échange avec les clients pour comprendre leurs besoins, clarifier
+            leurs attentes et définir les objectifs des projets.
+        - title: Développement
+          description: >-
+            Livraison de solutions adaptées aux besoins et aux objectifs de chaque client.
+
+    - company: Alasco
+      position: Responsable de projet
+      place: Munich, Allemagne
+      time:
+        start: Fév 2023
+        end: Juin 2025
+      description: >-
+        Entreprise spécialisée dans la gestion financière de projets immobiliers.
+        Responsabilité autonome d'outils destiné à l'amélioration
+        de la production de différentes équipes.
+      responsibilities:
+        - title: Organisation et amélioration des méthodes
+          description: >-
+            Analyse des méthodes de travail existantes et définition de règles communes pour garantir des résultats cohérents
+            et répondre aux exigences de qualité.
+        - title: Accompagnement des équipes
+          description: >-
+            Partage des bonnes pratiques et accompagnement de collaborateurs
+            de différents métiers.
+        - title: Réalisation
+          description: >-
+            Conception et développement de composants à destination de la bibliothèque d'outils.
+
+    - company: Red Bull Media House
+      position: Responsable technique
+      place: Salzbourg, Autriche
+      time:
+        start: Mai 2021
+        end: Août 2022
+      description: >-
+        Entreprise de production et de distribution de contenus consacrés
+        notamment au sport et au lifestyle.
+        Responsable technique d'outils destiné à l'amélioration
+        de la production de différentes équipes.
+      responsibilities:
+        - title: Coordination et accompagnement
+          description: >-
+            Contribution à la planification des projets et définition de bonnes pratiques. Accompagnement des collaborateurs et coordination avec les équipes internes.
+
+        - title: Conception et harmonisation des outils
+          description: >-
+            Pilotage techinque d’une bibliothèque d’éléments réutilisables afin d’harmoniser les outils et les interfaces utilisés par les différentes équipes.
+
+        - title: Qualité et méthodes de travail
+          description: >-
+            Définition de méthodes de travail communes, des procédures de contrôle qualité et des règles de documentation afin d’améliorer la fiabilité et la cohérence des réalisations.
+
+    - company: Blinkist
+      position: Développeur web
+      place: Berlin, Allemagne
+      time:
+        start: Sep 2018
+        end: Mar 2021
+      description: >-
+        Entreprise proposant des résumés de livres au format audio et texte.
+        Contribution à la croissance utilisateur au sein de l'équipe web
+      responsibilities:
+        - title: Développement
+          description: >-
+            Mise en ligne de pages dédiés à l'acquisition d'utlisateurs, amélioration du produit web, migration de technologie.
+        - title: Documentation et accompagnement
+          description: >-
+            Formalisation des méthodes de travail et accompagnement
+            de collaborateurs moins expérimentés.
+
+    - company: Neonaut - CDLX
+      position: Développeur web
+      place: Berlin, Allemagne
+      time:
+        start: Juin 2014
+        end: Oct 2016
+      description: >-
+        Studio de création numérique travaillant pour différents clients,
+        notamment dans les secteurs du design et de la communication.
+      responsibilities:
+        - title: Réalisation de projets
+          description: >-
+            Participation à la réalisation de projets pour différents clients,
+            en tenant compte de leurs besoins et de leurs objectifs.
+        - title: Qualité et attention aux détails
+          description: >-
+            Travail dans un environnement créatif exigeant, avec une attention
+            particulière portée à la cohérence visuelle et à la qualité finale.
+
+    - company: Freelance
+      position: Indépendant et consultant
+      place: Europe, sur site ou à distance
+      time:
+        start: Nov 2010
+        end: Mai 2021
+      description: >-
+        Activité indépendante menée en parallèle et entre plusieurs postes
+        salariés.
+      responsibilities:
+        - title: Développement et conseil
+          description: >-
+            Réalisation de plus de 20 sites web et applications, de l'analyse
+            des besoins à la livraison, avec gestion des clients et des projets.
+
+education:
+  title: Formation
+  items:
+    - institute: Supcréa
+      title: Diplôme en design graphique
+      place: Grenoble, France
+      time: "2007"
+
+    - institute: Université Joseph Fourier
+      title: DUT Réseaux et télécommunications
+      place: Grenoble, France
+      time: "2002"
+
+    - institute: Lycée du Granier
+      title: Baccalauréat
+      place: La Ravoire, France
+      time: "1999"

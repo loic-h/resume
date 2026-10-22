@@ -46,7 +46,7 @@ const { name, title, description, contact } = Astro.props;
     </ul>
   </div>
   <div class="divider"></div>
-  <p class="hero__description">{description}</p>
+  <p class="hero__description" set:html={description} />
 </section>
 
 <style lang="scss">
@@ -69,16 +69,14 @@ const { name, title, description, contact } = Astro.props;
     --contact-group-span: 1;
     --image-row: unset;
     --contact-row: unset;
+    --contact-gap-row: var(--space-8);
 
     padding-top: var(--padding-top);
     @include grid;
     row-gap: var(--space-24);
 
     &__image-wrapper {
-      background-color: var(--color-light);
-      border-radius: var(--radius-16);
       width: 100%;
-      overflow: hidden;
       grid-column: var(--image-col-start) / var(--image-col-end);
       grid-row: var(--image-row);
       max-width: var(--img-max-width);
@@ -89,6 +87,9 @@ const { name, title, description, contact } = Astro.props;
       height: auto;
       mix-blend-mode: luminosity;
       filter: grayscale(1);
+      border-radius: var(--radius-16);
+      overflow: hidden;
+      background-color: var(--color-light);
     }
 
     &__header {
@@ -96,19 +97,17 @@ const { name, title, description, contact } = Astro.props;
       display: flex;
       flex-direction: column;
       gap: var(--space-4);
-      line-height: 1em;
+      // line-height: 1em;
       align-self: flex-end;
       font-size: var(--title-font-size);
     }
 
     &__name {
       font-weight: var(--font-weight-bold);
-      white-space: nowrap;
     }
 
     &__title {
-      font-weight: var(--font-weight-normal);
-      white-space: nowrap;
+      font-weight: var(--font-weight-regular);
     }
 
     &__description {
@@ -120,7 +119,7 @@ const { name, title, description, contact } = Astro.props;
       grid-column: var(--contact-col-start) / var(--contact-col-end);
       align-content: flex-end;
       align-self: flex-end;
-      row-gap: var(--space-8);
+      row-gap: var(--contact-gap-row);
       grid-row: var(--contact-row);
 
       &__group {
@@ -145,7 +144,7 @@ const { name, title, description, contact } = Astro.props;
     }
 
     @include from(desktop) {
-      --title-font-size: var(--font-size-xxl);
+      --title-font-size: clamp(var(--font-size-l), 1.5vw, var(--font-size-xxl));
       --image-col-start: var(--grid-col-2-start);
       --image-col-end: span 2;
       --header-col-start: var(--grid-col-2-start);
@@ -196,6 +195,34 @@ const { name, title, description, contact } = Astro.props;
         height: 100%;
         mix-blend-mode: unset;
         filter: unset;
+      }
+    }
+  }
+
+  :global([data-version="reconversion"]) {
+    .hero {
+      --header-col-end: span 7;
+      --contact-col-start: calc(var(--grid-col-2-start) + 7);
+      --contact-gap-row: 0;
+    }
+
+    @include print {
+      .hero {
+        --header-col-end: span 9;
+        --divider-col-end: span 9;
+        --description-col-end: span 9;
+        --image-col-start: 10;
+        --contact-col-start: 10;
+        --image-row: 1 / span 3;
+        --contact-row: 4 / span 1;
+
+        &__description {
+          grid-row: span 2;
+        }
+
+        &__image {
+          width: auto;
+        }
       }
     }
   }

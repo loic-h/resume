@@ -210,7 +210,7 @@ const { title, items } = Astro.props;
       --gap-divider: var(--space-4);
       --gap-position-end: var(--space-4);
       --gap-info-end: var(--space-16);
-      --gap-description-end: var(--space-16);
+      --gap-description-end: var(--space-8);
       --content-max-width: auto;
       --gap-divider-start: 0;
 
@@ -235,6 +235,13 @@ const { title, items } = Astro.props;
         float: left;
       }
 
+      &__place {
+        &:after {
+          content: "|";
+          margin: 0 var(--space-8);
+        }
+      }
+
       &__position {
         order: 3;
       }
@@ -245,6 +252,7 @@ const { title, items } = Astro.props;
 
       &__responsibilities {
         order: 6;
+        gap: var(--space-8);
       }
 
       &__divider {

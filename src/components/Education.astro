@@ -125,4 +125,16 @@ const { title, items } = Astro.props;
       }
     }
   }
+
+  :global([data-version="reconversion"]) {
+    @include print {
+      .education {
+        grid-row: 2 / -1;
+
+        &__items {
+          grid-column: 1 / span 3;
+        }
+      }
+    }
+  }
 </style>

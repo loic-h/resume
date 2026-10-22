@@ -1,12 +1,12 @@
 /* ------------------------------------------------------------------
  * variables.scss — Design tokens (CSS custom properties)
  * ------------------------------------------------------------------ */
- @use "./utilities" as *;
+@use "./utilities" as *;
 
 :root {
   /* Colors */
   --color-dark: #090911;
-  --color-light: #FDFDF4;
+  --color-light: #fdfdf4;
 
   --color-accent: #c8a96e;
   --color-accent-hover: #dbbc82;
@@ -20,7 +20,6 @@
   --space-48: #{pxToRem(48)};
   --space-64: #{pxToRem(64)};
   --space-128: #{pxToRem(128)};
-
 
   /* Font sizes (in rem, base = 16px) */
   --font-size-base: 16px;
@@ -60,11 +59,11 @@
 
   @include print {
     --font-size-base: 12px;
-    --body-row-gap: #{pxToRem(16)};
+    --body-row-gap: var(--space-32);
     --body-col-gap: var(--space-32);
     --color-background: transparent;
     --color-font: black;
-    --title-end: var(--space-8)
+    --title-end: var(--space-8);
   }
 }
 

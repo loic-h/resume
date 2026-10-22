@@ -47,7 +47,11 @@ const totalExp = data.experience?.items.length;
     <meta name="generator" content={Astro.generator} />
     <title>{data.name} – {data.title}</title>
   </head>
-  <body data-theme="light" style={`--total-exp: ${totalExp}`}>
+  <body
+    data-theme="light"
+    data-version={data.version}
+    style={`--total-exp: ${totalExp}`}
+  >
     <Layout data={data} />
   </body>
 </html>

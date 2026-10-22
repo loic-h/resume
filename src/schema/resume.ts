@@ -17,6 +17,7 @@ const envString = z.string().transform((val, ctx) => {
 });
 
 export default z.object({
+  version: z.string(),
   title: z.string(),
   name: z.string(),
   description: z.string(),
